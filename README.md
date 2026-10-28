@@ -13,3 +13,4 @@ Python scripts in the `api` directory that use the JSONPlaceholder REST API
 ## Usage
 
     python3 0-gather_data_from_an_API.py 2
+
