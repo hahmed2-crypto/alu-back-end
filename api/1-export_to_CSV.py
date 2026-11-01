@@ -15,7 +15,7 @@ def export_to_csv(employee_id):
     """
     url = "https://typicode.com"
 
-    # Fetch user data
+    # Fetch user data (uses username field)
     user_res = requests.get(url + "users/{}".format(employee_id))
     user_data = user_res.json()
     username = user_data.get("username")
@@ -26,13 +26,13 @@ def export_to_csv(employee_id):
 
     # Write data to CSV file using standard formatting rules
     filename = "{}.csv".format(employee_id)
-    with open(filename, mode='w', newline='') as csv_file:
+    with open(filename, mode='w', newline='', encoding='utf-8') as csv_file:
         writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
         for task in todos_data:
             writer.writerow([
-                employee_id,
+                str(employee_id),
                 username,
-                task.get("completed"),
+                str(task.get("completed")),
                 task.get("title")
             ])
 

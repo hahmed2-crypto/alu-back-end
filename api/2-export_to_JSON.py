@@ -11,7 +11,8 @@ import sys
 def export_to_json(employee_id):
     """
     Fetches data from JSONPlaceholder API and exports it to a JSON file.
-    Format: { "USER_ID": [{"task": "...", "completed": ..., "username": "..."}, ...]}
+    Format must be:
+    { "USER_ID": [{"task": "...", "completed": ..., "username": "..."}, ...]}
     """
     url = "https://typicode.com"
 
@@ -37,7 +38,7 @@ def export_to_json(employee_id):
 
     # Write dictionary to JSON file
     filename = "{}.json".format(employee_id)
-    with open(filename, mode='w') as json_file:
+    with open(filename, mode='w', encoding='utf-8') as json_file:
         json.dump(json_data, json_file)
 
 
